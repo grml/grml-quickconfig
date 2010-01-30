@@ -6,7 +6,9 @@
 # License:       This file is licensed under the GPL v2.
 ################################################################################
 
-. /etc/grml/sh-lib
+set -e
+
+. /etc/grml/script-functions
 if ! checkbootparam 'nocolor'; then
     . /etc/grml_colors
 fi
@@ -32,6 +34,9 @@ SCRIPTDIR="/usr/share/grml-quickconfig/"
 
 # enable alternate console fonts
 echo -n "(B)0"
+
+# set zsh options
+setopt no_nomatch
 # }}}
 
 
@@ -75,20 +80,28 @@ run() {
 }
 
 get_key() {
-    stty -echo ; read -kq $1?"Press a key: "
+    stty -echo ; read -kq ${1}?"Press a key: "
+}
+
+bailout() {
+   [ -n "$1" ] && RC=$1 || RC=0
+   [ -n "$2" ] && print "$2" >&2
+   exit $RC
 }
 # }}}
+
+trap bailout 1 2 3 3 6 9 14 15
 
 # check boot parameter {{{
 get_menu_dir() {
    local TARGET="$1"
-   if [ -d "$TARGET" ] ; then
-      MENUDIR="$TARGET"
+   if [ -d "./$TARGET" ] ; then
+      MENUDIR="./$TARGET"
    elif [ -d "$SCRIPTDIR/$TARGET" ] ; then
       MENUDIR="$SCRIPTDIR/$TARGET"
    fi
 }
-BOOT_PARAM=$(getbootparam menu)
+BOOT_PARAM=$(getbootparam menu) || true
 if [ -n "$TARGET" ] ; then
    get_menu_dir "$BOOT_PARAM"
 fi
@@ -103,12 +116,15 @@ fi
 # }}}
 
 # load modules {{{
-for file in "$MENUDIR"/*.sh ; do
+if ! ls "$MENUDIR"/*.sh &>/dev/null ; then
+   bailout 1 "Error: $MENUDIR is empty, exiting."
+fi
+ls ${MENUDIR}/*.sh &>/dev/null || exit 1
+for file in ${MENUDIR}/*.sh ; do
     LINE=""
     KEY=""
     FUNCTION=""
     NAME=""
-    [ ! -e "$file" ] && break
     . $file
     if display_entry ; then
         setopt noglob
@@ -126,7 +142,7 @@ done
 # }}}
 
 if [ -z "$info" ] ; then
-   exit 1
+   bailout 1
 fi
 # mainloop {{{
 while : ; do
@@ -136,10 +152,11 @@ while : ; do
     get_key INPUT
     case $INPUT in
         [q|Q|$'\n'])
-            echo
+            echo $INPUT
             break
             ;;
         [${(k)keys}])
+            echo $INPUT
             eval ${keymap[$INPUT]}
             ;;
         *)
