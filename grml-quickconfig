@@ -1,0 +1,157 @@
+#!/bin/zsh
+# Filename:      grml-quickconfig
+# Purpose:       get fast access to some basic grml-scripts
+# Authors:       Grml Team <team@grml.org>
+# Bug-Reports:   see http://grml.org/bugs/
+# License:       This file is licensed under the GPL v2.
+################################################################################
+
+. /etc/grml/sh-lib
+if ! checkbootparam 'nocolor'; then
+    . /etc/grml_colors
+fi
+
+# variable setup {{{
+# maximum line length
+MAXLEN=60
+
+# switch between character sets
+B="\x0e"
+N="\x0f"
+
+set -A info
+set -A keys
+typeset -A keymap
+
+HLINE="$B x $N"
+VLINE=$(repeat $MAXLEN echo -n q)
+HILIGHT="$GREEN"
+HILIGHT_NAME="$MAGENTA"
+SCRIPTDIR="/usr/share/grml-quickconfig/"
+
+
+# enable alternate console fonts
+echo -n "(B)0"
+# }}}
+
+
+# helper functions {{{
+print_line() {
+    esc=$(printf '\033')
+    ORIG_LEN=$(echo $(printf '%s' "$1" | sed "s#${esc}\[[0-9;]*m##g" | wc -c))
+    echo -n "${BLUE}$HLINE${NORMAL}"
+    echo -n "$1"
+    printf "%$[${MAXLEN}-${ORIG_LEN}-2]s${BLUE}${HLINE}${NORMAL}\n"
+}
+
+print_starting_line() {
+    echo $B ${BLUE}l"$VLINE"k${NORMAL} $N
+}
+
+print_closing_line() {
+    echo $B ${BLUE}m"$VLINE"j${NORMAL} $N
+}
+
+print_delim() {
+   echo $B ${BLUE}t"$VLINE"u${NORMAL} $N
+}
+
+hilight_char() {
+    echo $1 | sed -e "s/$2/$HILIGHT$2$NORMAL/"
+}
+
+print_menu() {
+    print_starting_line
+    for x in ${info} ; do
+        echo $x
+    done
+    print_closing_line
+}
+
+run() {
+   echo Running Command $*
+   $*
+
+}
+
+get_key() {
+    stty -echo ; read -kq $1?"Press a key: "
+}
+# }}}
+
+# check boot parameter {{{
+get_menu_dir() {
+   local TARGET="$1"
+   if [ -d "$TARGET" ] ; then
+      MENUDIR="$TARGET"
+   elif [ -d "$SCRIPTDIR/$TARGET" ] ; then
+      MENUDIR="$SCRIPTDIR/$TARGET"
+   fi
+}
+BOOT_PARAM=$(getbootparam menu)
+if [ -n "$TARGET" ] ; then
+   get_menu_dir "$BOOT_PARAM"
+fi
+if [ -n "$1" ] ; then
+   get_menu_dir "$1"
+fi
+
+if [ -z "$MENUDIR" ] ; then
+   MENUDIR="$SCRIPTDIR"
+fi
+
+# }}}
+
+# load modules {{{
+for file in "$MENUDIR"/*.sh ; do
+    LINE=""
+    KEY=""
+    FUNCTION=""
+    NAME=""
+    [ ! -e "$file" ] && break
+    . $file
+    if display_entry ; then
+        setopt noglob
+        if [ -n "$LINE" ] ; then
+            info+="$(eval $LINE)"
+        fi
+
+        for k in ${KEY} ; do
+            keymap[$k]=$FUNCTION
+        done
+        keys+=$KEY
+        setopt glob
+    fi
+done
+# }}}
+
+if [ -z "$info" ] ; then
+   exit 1
+fi
+# mainloop {{{
+while : ; do
+    echo
+    print_menu
+    echo
+    get_key INPUT
+    case $INPUT in
+        [q|Q|$'\n'])
+            echo
+            break
+            ;;
+        [${(k)keys}])
+            eval ${keymap[$INPUT]}
+            ;;
+        *)
+            echo "Unknown key"
+            echo
+            ;;
+
+        esac
+
+done
+echo "Happy Hacking"
+# }}}
+
+## END OF FILE #################################################################
+# vim:foldmethod=marker expandtab ai ft=zsh shiftwidth=3
