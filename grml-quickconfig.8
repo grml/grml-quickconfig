@@ -10,16 +10,16 @@ command.
 .SH OPTIONS
 .TP
 .B menudir
-Directory to load the menu files from. Menu files have to end in *.sh.
+Directory to load the menu files from. Menu files have to end with '*.sh'.
 
-If menudir is a directory files will be directly loaded from specified directory.
-If it is not a directory it will be loaded from
+If menudir is an existing directory then files will be directly loaded from
+the specified directory. If it is not a directory it will be loaded from
 .B /usr/share/grml-quickconfig/MENUDIR/
-(if exists)
+instead (if exists).
 
 If no option is provided the bootparameter
 .B menu
-is used as directory
+(if present) is used as directory.
 .SH NOTES
 grml-quickconfig provides a console based interface to get fast
 access to some basic grml-scripts like for example grml-network,
@@ -30,35 +30,36 @@ netcardconfig, grml-lang, grml-x and grml2hd.
 Invoke the interface.
 .TP
 .B grml-quickconfig /opt/my_menu/
-Invoke the interface and load all files ending in *.sh
+Invoke the interface and load all files ending with '*.sh'.
 .TP
 .B grml-quickconfig network
-Test if dir is a directory and load all files edning in *.sh from it. If dir is not a valid directory
+Test if 'network' is a directory (in the current working directory) and load all files ending with *.sh
+from it. If it is not a valid directory
 .B /usr/share/grml-quickconfig/network/
-is used.
+is used instead.
 .SH Writing own menu entries
-A menu script is a shell script with some necessary informations described in this section.
+A menu script is a shell script with some necessary information described in this section.
 
 .SS API
-Following predefined functions are available to write a script displaying a menu entry:
+The following predefined functions are available to write a script displaying a menu entry:
 .TP
 .B print_line text
-Print the text in one line inside the menu. Shell
+Print the text in one line inside the menu.
 .TP
 .B print_starting_line
-Print the first line for a menu
+Print the first line for a menu.
 .TP
 .B print_closing_line
-Print the closing line for a menu
+Print the closing line for a menu.
 .TP
 .B print_delim
-Print a delimiter line for a menu
+Print a delimiter line for a menu.
 .TP
 .B run COMMAND
-Print command before executing it
+Print command and then execute it.
 .TP
 .B get_key VARIABLE_NAME
-Get one key from user
+Get one key from user.
 .TP
 .B Example
 
@@ -70,13 +71,13 @@ Get one key from user
    run grml-lang de
 
 .SS Predefined Variables
-Following variables are predefined and could be used in a menu script:
+The following variables are predefined and could be used in a menu script:
 .TP
 .B NORMAL
 Switch back to normal color
 .TP
-.B HILIGHT
-Shall be used to hilight the used key for a menu
+.B HIGHLIGHT
+Highlight the used key inside the menu.
 .TP
 .B Example
  print_line "Configure ${HILIGHT}n${NORMAL}etwork"
@@ -110,10 +111,10 @@ used in combination with print_line. Only used if display_entry returns 0.
  LINE='print_line "Configure ${HILIGHT}n${NORMAL}etwork (${HILIGHT_NAME}grml-network${NORMAL})"'
 .RE 1
 .SS Optional entries
-Following variables are optional and can be defined in a script but must not.
+The following variables are optional and can be defined in a script but do not have to.
 .TP
 .B FUNCTION
-A variable specifing the code which shall be executed if user selects this menu entry.
+A variable specifying the code which should be executed if user selects this menu entry.
 The variable $INPUT can be used to get the user input.
 .RS
 .B \ Example
@@ -127,7 +128,7 @@ The variable $INPUT can be used to get the user input.
 
 .TP
 .B KEY, array
-An array containig all possible keys for executing the code specified in the FUNCTION variable, e.g:
+An array containing all possible keys for executing the code specified in the FUNCTION variable, e.g:
 .RS
  # execute code in FUNCTION if c, d or e is pressed.
 KEY=(c d e)
@@ -159,15 +160,12 @@ KEY=(c d e)
      return 0
  }
 
- ## END OF FILE ################################################################# 
+ ## END OF FILE #################################################################
  # vim:foldmethod=marker expandtab ai ft=zsh shiftwidth=3
 
-
 .SH AUTHOR
-Current grml-quickconfig was written by the Grml Team <team@grml.org> and is based on the
-idea of Michael Schierl.
-
-The originaly grml-quickconfig was written by Michael Schierl <schierlm-public@gmx.de>.
+grml-quickconfig was written by the Grml Team <team@grml.org> and is based on the
+idea of Michael Schierl <schierlm-public@gmx.de>.
 .PP
-This manual page was written by Michael Prokop
-<mika@grml.org> for the grml project (but may be used by others).
+This manual page was written by Ulrich Dangel <mru@grml.org> and Michael Prokop
+<mika@grml.org> for the Grml project (but may be used by others).
