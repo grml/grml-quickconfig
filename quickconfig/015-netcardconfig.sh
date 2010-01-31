@@ -1,5 +1,5 @@
 # netcardconfig module for grml-quickconfig
-LINE='print_line "-> Configure ${HILIGHT}e${NORMAL}thernet card directly (${HILIGHT_NAME}netcardconfig${NORMAL})"'
+LINE='print_line "-> Configure ${HIGHLIGHT}e${NORMAL}thernet card directly (${HIGHLIGHT_NAME}netcardconfig${NORMAL})"'
 KEY=(n)
 FUNCTION='run netcardconfig'
 

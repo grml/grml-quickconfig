@@ -25,8 +25,8 @@ typeset -A keymap
 
 HLINE="$B x $N"
 VLINE=$(repeat $MAXLEN echo -n q)
-HILIGHT="$GREEN"
-HILIGHT_NAME="$MAGENTA"
+HIGHLIGHT="$GREEN"
+HIGHLIGHT_NAME="$MAGENTA"
 SCRIPTDIR="/usr/share/grml-quickconfig/"
 
 
@@ -56,8 +56,8 @@ print_delim() {
    echo $B ${BLUE}t"$VLINE"u${NORMAL} $N
 }
 
-hilight_char() {
-    echo $1 | sed -e "s/$2/$HILIGHT$2$NORMAL/"
+highlight_char() {
+    echo $1 | sed -e "s/$2/$HIGHLIGHT$2$NORMAL/"
 }
 
 print_menu() {

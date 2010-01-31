@@ -1,5 +1,5 @@
 # grml-info module for grml-quickconfig
-LINE='print_line "Show ${HILIGHT}i${NORMAL}nformation about grml (${HILIGHT_NAME}grml-info${NORMAL})"'
+LINE='print_line "Show ${HIGHLIGHT}i${NORMAL}nformation about grml (${HIGHLIGHT_NAME}grml-info${NORMAL})"'
 KEY=(i)
 FUNCTION="run grml-info"
 

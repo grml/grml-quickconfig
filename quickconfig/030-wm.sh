@@ -1,5 +1,5 @@
 # window manager module for grml-quickconfig
-LINE='print_line "Start ${HILIGHT}x${NORMAL} (${HILIGHT_NAME}grml-x${NORMAL})"'
+LINE='print_line "Start ${HIGHLIGHT}x${NORMAL} (${HIGHLIGHT_NAME}grml-x${NORMAL})"'
 KEY=(x)
 FUNCTION='wm_menu'
 
@@ -44,7 +44,7 @@ print_available_wm() {
       # test if word could be added to current line
       if [ $[${(c)#key} + $LEN] -lt $MAXLEN ] ; then
         LEN+=${(c)#wm}
-        line+="$(hilight_char $value $key) "
+        line+="$(highlight_char $value $key) "
       else
         LEN=0
         output+="$line"

@@ -2,7 +2,7 @@
 # print the heading
 LINE='print_line "Welcome to grml-quickconfig";
 print_line "Press a highlighted key to perform an action, or press";
-print_line "${HILIGHT}Return${NORMAL} or ${HILIGHT}q${NORMAL} to go back to the shell.";
+print_line "${HIGHLIGHT}Return${NORMAL} or ${HIGHLIGHT}q${NORMAL} to go back to the shell.";
 print_delim;
 '
 
