@@ -8,30 +8,34 @@ Homepage: http://git.grml.org/?p=grml-quickconfig.git
 Vcs-git: git://git.grml.org/grml-quickconfig.git
 Vcs-Browser: http://git.grml.org/?p=grml-quickconfig.git
 
-
 Package: grml-quickconfig
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, zsh | zsh-beta
 Suggests: grml-quickconfig-standard
-Conflicts: grml-scripts (<= 1.2.1)
+Conflicts: grml-scripts (<= 1.2.2)
 Description: Menu framework for quick access of grml menu entries
+ grml-quickconfig provides a console based interface to get fast
+ access to some basic grml-scripts like for example grml-network,
+ netcardconfig, grml-lang, grml-x and grml2hd.
+ .
+ grml-quickconfig also provides a modularised and flexible way of
+ creating dynamic menus so it is easy to customize
+ grml-quickconfig according to your needs.
+ .
  This is the core package containing only grml-quickconfig itself
  without any menu entries.
- .
- grml-quickconfig is a modularised and flexible way of creating
- dynamic menues.
 
 Package: grml-quickconfig-standard
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grml-quickconfig
 Description: Standard menu entries for grml-quickconfig
- This packagae contains the standard grml-quickconfig menu entries.
+ This package contains the standard grml-quickconfig menu entries.
  .
- This package contains menu entries for:
-  * grml-lang
-  * netcardconfig
-  * netconfig
-  * grml-x
+ This package provides menu entries for:
   * grml2hd
+  * grml-info
+  * grml-lang
+  * grml-network
+  * grml-x
+  * netcardconfig
   * pdmenu
-
