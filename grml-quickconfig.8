@@ -15,11 +15,30 @@ Directory to load the menu files from. Menu files have to end with '*.sh'.
 If menudir is an existing directory then files will be directly loaded from
 the specified directory. If it is not a directory it will be loaded from
 .B /usr/share/grml-quickconfig/MENUDIR/
-instead (if exists).
+instead (if present).
 
 If no option is provided the bootparameter
 .B menu
 (if present) is used as directory.
+
+If neither a commandline parameter nor a bootparameter is specified it will load the menu files from the default location
+.B /usr/share/grml-quickconfig
+
+If there exists a directory called
+.B local
+inside the default location it will be used for loading the menue.
+.SH Determing menu directory:
+.IP \(bu
+Command  line argument
+.IP \(bu
+boot parameter menu
+.IP \(bu
+.B /usr/share/grml-quickconfig/local/
+(if present)
+.IP \(bu
+.B /usr/share/grml-quickconfig/
+
+
 .SH NOTES
 grml-quickconfig provides a console based interface to get fast
 access to some basic grml-scripts like for example grml-network,
