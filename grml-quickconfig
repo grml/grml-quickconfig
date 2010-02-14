@@ -110,7 +110,12 @@ if [ -n "$1" ] ; then
 fi
 
 if [ -z "$MENUDIR" ] ; then
-   MENUDIR="$SCRIPTDIR"
+   if [ -d "$SCRIPTDIR/local" ] ; then
+      MENUDIR="$SCRIPTDIR/local"
+
+   else
+      MENUDIR="$SCRIPTDIR"
+   fi
 fi
 
 # }}}
