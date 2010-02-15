@@ -1,3 +1,10 @@
+grml-quickconfig (0.2) unstable; urgency=low
+
+  * Add missing bracket to grml2hd configuration.
+  * Add myself to list of uploaders.
+
+ -- Michael Prokop <mika@grml.org>  Mon, 15 Feb 2010 22:49:54 +0100
+
 grml-quickconfig (0.1) unstable; urgency=low
 
   * Initial release.
