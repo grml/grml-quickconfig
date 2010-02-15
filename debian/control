@@ -3,13 +3,13 @@ Section: utils
 Priority: optional
 Maintainer: Ulrich Dangel <mru@grml.org>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Homepage: http://git.grml.org/?p=grml-quickconfig.git
 Vcs-git: git://git.grml.org/grml-quickconfig.git
 Vcs-Browser: http://git.grml.org/?p=grml-quickconfig.git
 
 Package: grml-quickconfig
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, zsh | zsh-beta
 Suggests: grml-quickconfig-standard
 Conflicts: grml-scripts (<= 1.2.2)
@@ -26,7 +26,7 @@ Description: Menu framework for quick access of grml menu entries
  without any menu entries.
 
 Package: grml-quickconfig-standard
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, grml-quickconfig
 Description: Standard menu entries for grml-quickconfig
  This package contains the standard grml-quickconfig menu entries.
