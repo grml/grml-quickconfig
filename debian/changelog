@@ -1,3 +1,9 @@
+grml-quickconfig (0.3) unstable; urgency=low
+
+  * Drop the "Happy Hacking" output.
+
+ -- Michael Prokop <mika@grml.org>  Tue, 16 Feb 2010 02:12:24 +0100
+
 grml-quickconfig (0.2) unstable; urgency=low
 
   * Add missing bracket to grml2hd configuration.
