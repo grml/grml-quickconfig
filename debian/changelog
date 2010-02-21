@@ -1,3 +1,9 @@
+grml-quickconfig (0.4) unstable; urgency=low
+
+  * Make sure that after executing a command the menu is shown.
+
+ -- Ulrich Dangel <mru@grml.org>  Sun, 21 Feb 2010 23:58:15 +0100
+
 grml-quickconfig (0.3) unstable; urgency=low
 
   * Drop the "Happy Hacking" output.
