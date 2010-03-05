@@ -1,7 +1,11 @@
 grml-quickconfig (0.4) unstable; urgency=low
 
+  [ Michael Prokop ]
   * quickconfig/030-xorg.sh: Do not reset environment in su command line
     so e.g. $DISTRI is exported to X session. [Closes: gf-issue58]
+
+  [ Ulrich Dangel ]
+  * Make sure that after executing a command the menu is shown.
 
  -- Michael Prokop <mika@grml.org>  Fri, 05 Mar 2010 01:27:42 +0100
 

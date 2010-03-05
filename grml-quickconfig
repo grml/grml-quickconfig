@@ -162,7 +162,7 @@ while : ; do
             ;;
         [${(k)keys}])
             echo $INPUT
-            eval ${keymap[$INPUT]}
+            eval ${keymap[$INPUT]} || true
             ;;
         *)
             echo "Unknown key"
