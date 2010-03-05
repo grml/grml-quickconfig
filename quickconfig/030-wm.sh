@@ -77,7 +77,7 @@ wm_menu() {
   get_key INPUT
   case $INPUT in
     [${(k)available}])
-    run su - grml -c "grml-x ${available[$INPUT]}"
+    run su grml -c "grml-x ${available[$INPUT]}"
     ;;
   esac
 }

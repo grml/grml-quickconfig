@@ -1,3 +1,10 @@
+grml-quickconfig (0.4) unstable; urgency=low
+
+  * quickconfig/030-xorg.sh: Do not reset environment in su command line
+    so e.g. $DISTRI is exported to X session. [Closes: gf-issue58]
+
+ -- Michael Prokop <mika@grml.org>  Fri, 05 Mar 2010 01:27:42 +0100
+
 grml-quickconfig (0.3) unstable; urgency=low
 
   * Drop the "Happy Hacking" output.
