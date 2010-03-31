@@ -10,45 +10,47 @@ display_entry() {
 # variable definition {{{
 typeset -A wms
 typeset -A available
-set -a output
+set -A output
 # }}}
 
 # window manager definition {{{
-wms[a]=awesome
-wms[d]=dwm
-wms[e]=evilwm
-wms[f]=fluxbox
-wms[v]=fvwm
-wms[2]=fvwm2
-wms[c]=fvwm-crystal
-wms[j]=jwm
-wms[o]=openbox
-wms[k]=pekwm
-wms[r]=ratpoison
-wms[t]=twm
-wms[9]=w9wm
-wms[w]=windowlab
-wms[i]=wmii
-wms[n]=wm-ng
+wms=(
+  a awesome
+  d dwm
+  e evilwm
+  f fluxbox
+  v fvwm
+  2 fvwm2
+  c fvwm-crystal
+  j jwm
+  o openbox
+  k pekwm
+  r ratpoison
+  t twm
+  9 w9wm
+  w windowlab
+  i wmii
+  n wm-ng
+  )
 # }}}
 
 # deteremine installed window managers {{{
 print_available_wm() {
   . /etc/grml/script-functions
-  line=""
   LEN=0
+  local line
 
   for key value in ${(kv)wms} ; do
     if check4progs $value >/dev/null ; then
       available[$key]=$value
       # test if word could be added to current line
-      if [ $[${(c)#key} + $LEN] -lt $MAXLEN ] ; then
-        LEN+=${(c)#wm}
-        line+="$(highlight_char $value $key) "
-      else
+      if [ $((${(c)#value} + $LEN)) -ge $(($MAXLEN-9)) ] ; then
         LEN=0
         output+="$line"
+        line=""
       fi
+      line+="$(highlight_char $value $key) "
+      LEN=$((${(c)#value} + $LEN))
     fi
   done
   output+="$line"
@@ -68,7 +70,7 @@ wm_heading() {
 wm_menu() {
   echo
   wm_heading
-  for line in $output ; do
+  for line in ${output} ; do
     print_line $line
   done
   print_closing_line
