@@ -1,3 +1,10 @@
+grml-quickconfig (0.6) unstable; urgency=low
+
+  * Fix keybindings for netcardconfig and grml2hd.
+    Thanks for reporting, Jimmy.
+
+ -- Michael Prokop <mika@grml.org>  Fri, 02 Apr 2010 12:34:39 +0200
+
 grml-quickconfig (0.5) unstable; urgency=low
 
   [ Ulrich Dangel ]

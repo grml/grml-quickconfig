@@ -1,5 +1,5 @@
 LINE='print_line "Install grml to ${HIGHLIGHT}h${NORMAL}ard disk (${HIGHLIGHT_NAME}grml2hd${NORMAL})"'
-KEY=(m)
+KEY=(h)
 HD_APP=grml2hd
 FUNCTION="run $HD_APP"
 
