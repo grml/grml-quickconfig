@@ -22,6 +22,7 @@ wms=(
   v fvwm
   2 fvwm2
   c fvwm-crystal
+  3 i3
   j jwm
   o openbox
   k pekwm
