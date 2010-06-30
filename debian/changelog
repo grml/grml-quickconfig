@@ -1,3 +1,13 @@
+grml-quickconfig (0.7) unstable; urgency=low
+
+  [ Michael Stapelberg ]
+  * [81cdd15] Add i3 to window managers.
+
+  [ Michael Prokop ]
+  * [fab2702] Bump Standards-Version to 3.9.0.
+
+ -- Michael Prokop <mika@grml.org>  Wed, 30 Jun 2010 13:32:13 +0200
+
 grml-quickconfig (0.6) unstable; urgency=low
 
   * Fix keybindings for netcardconfig and grml2hd.
