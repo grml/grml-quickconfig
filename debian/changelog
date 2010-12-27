@@ -1,3 +1,13 @@
+grml-quickconfig (0.8) unstable; urgency=low
+
+  [ Ulrich Dangel ]
+  * [06c9315] Do not use -q option for read.
+
+  [ Michael Prokop ]
+  * [d093f23] Bump Standards-Version to 3.9.1.
+
+ -- Michael Prokop <mika@grml.org>  Mon, 27 Dec 2010 23:39:45 +0100
+
 grml-quickconfig (0.7) unstable; urgency=low
 
   [ Michael Stapelberg ]
