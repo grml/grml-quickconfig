@@ -80,7 +80,7 @@ run() {
 }
 
 get_key() {
-    stty -echo ; read -kq ${1}?"Press a key: "
+    stty -echo ; read -k ${1}?"Press a key: "
 }
 
 bailout() {
