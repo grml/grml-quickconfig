@@ -17,7 +17,7 @@ Conflicts: grml-scripts (<= 1.2.2)
 Description: Menu framework for quick access of grml menu entries
  grml-quickconfig provides a console based interface to get fast
  access to some basic grml-scripts like for example grml-network,
- netcardconfig, grml-lang, grml-x and grml2hd.
+ netcardconfig, grml-lang, grml-x and grml-debootstrap.
  .
  grml-quickconfig also provides a modularised and flexible way of
  creating dynamic menus so it is easy to customize
@@ -33,7 +33,7 @@ Description: Standard menu entries for grml-quickconfig
  This package contains the standard grml-quickconfig menu entries.
  .
  This package provides menu entries for:
-  * grml2hd
+  * grml-debootstrap
   * grml-info
   * grml-lang
   * grml-network

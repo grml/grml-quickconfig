@@ -1,6 +1,6 @@
-LINE='print_line "Install grml to ${HIGHLIGHT}h${NORMAL}ard disk (${HIGHLIGHT_NAME}grml2hd${NORMAL})"'
+LINE='print_line "Install Debian to ${HIGHLIGHT}h${NORMAL}ard disk (${HIGHLIGHT_NAME}grml-debootstrap${NORMAL})"'
 KEY=(h)
-HD_APP=grml2hd
+HD_APP=grml-debootstrap
 FUNCTION="run $HD_APP"
 
 display_entry() {
