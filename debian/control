@@ -11,7 +11,7 @@ Vcs-Browser: http://git.grml.org/?p=grml-quickconfig.git
 
 Package: grml-quickconfig
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, zsh | zsh-beta
+Depends: ${shlibs:Depends}, ${misc:Depends}, zsh | zsh-beta, grml-etc-core
 Suggests: grml-quickconfig-standard
 Conflicts: grml-scripts (<= 1.2.2)
 Description: Menu framework for quick access of grml menu entries
