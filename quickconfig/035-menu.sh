@@ -1,6 +1,6 @@
 # application menu module for grml-quickconfig
 
-LINE='print_line "Show an application ${HIGHLIGHT}m${NORMAL}enu (${HIGHLIGHT_NAME}pdmenu${NORMAL})"'
+LINE='print_line "Show an application ^menu (/pdmenu/)"'
 KEY=(m)
 MENU_PROGNAME=pdmenu
 FUNCTION="run $MENU_PROGNAME"

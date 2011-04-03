@@ -1,4 +1,4 @@
-LINE='print_line "Install Debian to ${HIGHLIGHT}h${NORMAL}ard disk (${HIGHLIGHT_NAME}grml-debootstrap${NORMAL})"'
+LINE='print_line "Install Debian to ^hard disk (/grml-debootstrap/)"'
 KEY=(h)
 HD_APP=grml-debootstrap
 FUNCTION="run $HD_APP"

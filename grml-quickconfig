@@ -134,6 +134,9 @@ for file in ${MENUDIR}/*.sh ; do
     if display_entry ; then
         setopt noglob
         if [ -n "$LINE" ] ; then
+           LINE=$(echo "$LINE" | sed 's#\([^\]\)/\([[:alnum:]_-]*\)/#\1${HIGHLIGHT_NAME}\2${NORMAL}#g')
+           LINE=$(echo "$LINE" | sed 's#\([^\]\)^\([[:alnum:]]\)#\1${HIGHLIGHT}\2${NORMAL}#g')
+           LINE=$(echo "$LINE" | sed 's#\\\([^/]\)#\1#g')
             info+="$(eval $LINE)"
         fi
 

@@ -100,6 +100,22 @@ Highlight the used key inside the menu.
 .TP
 .B Example
  print_line "Configure ${HIGHLIGHT}n${NORMAL}etwork"
+
+.SS Shortcuts
+As highlighting the name as well as the keyboard shortcuts is common
+in a menu entry there are two shortcuts for highlighting.
+.SS Highlight a single character
+To highlight a single character, for example the shortcut, use
+.B ^
+and the next character will be highlighted. If you want to just write ^ escape the
+character with a backslash.
+ print_line "Configure ^network \\^ is nice"
+.SS Highlight a word
+To highlight a range, for example the command, use
+.B /word/
+and the text between / wll be highlighted. If you want to just write / escape the
+character with a backslash.
+ print_line "Configure ^network (/grml-network/)"
 .SS MUST Provide
 .TP
 .B display_entry
@@ -127,7 +143,7 @@ used in combination with print_line. Only used if display_entry returns 0.
 .RS
 .B \ Example
  # print Configure network (grml-network)
- LINE='print_line "Configure ${HIGHLIGHT}n${NORMAL}etwork (${HIGHLIGHT_NAME}grml-network${NORMAL})"'
+ LINE='print_line "Configure ^network (/grml-network/)"'
 .RE 1
 .SS Optional entries
 The following variables are optional and can be defined in a script but do not have to.
@@ -154,8 +170,7 @@ KEY=(c d e)
 
 .SS Complete Example
  # language module for grml-quickconfig
- LINE='print_line "Set keyboard layout (${HIGHLIGHT_NAME}grml-lang${NORMAL}): \\
- ${HIGHLIGHT}d${NORMAL}e ${HIGHLIGHT}a${NORMAL}t ${HIGHLIGHT}c${NORMAL}h e${HIGHLIGHT}s${NORMAL} ${HIGHLIGHT}u${NORMAL}s"'
+ LINE='print_line "Set keyboard layout (/grml-lang/): ^de ^at ^ch e^s ^us"'
 
  typeset -A lang_mapping
 

@@ -1,5 +1,5 @@
 # window manager module for grml-quickconfig
-LINE='print_line "Start ${HIGHLIGHT}x${NORMAL} (${HIGHLIGHT_NAME}grml-x${NORMAL})"'
+LINE='print_line "Start ^x (/grml-x/)"'
 KEY=(x)
 FUNCTION='wm_menu'
 

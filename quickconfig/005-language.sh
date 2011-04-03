@@ -1,6 +1,5 @@
 # language module for grml-quickconfig
-LINE='print_line "Set keyboard layout (${HIGHLIGHT_NAME}grml-lang${NORMAL}): \
-${HIGHLIGHT}d${NORMAL}e ${HIGHLIGHT}a${NORMAL}t ${HIGHLIGHT}c${NORMAL}h e${HIGHLIGHT}s${NORMAL} ${HIGHLIGHT}u${NORMAL}s"'
+LINE='print_line "Set keyboard layout (/grml-lang/): ^de ^at ^ch e^s ^us"'
 
 typeset -A lang_mapping
 
