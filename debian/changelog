@@ -1,3 +1,11 @@
+grml-quickconfig (0.10) unstable; urgency=low
+
+  [ Ulrich Dangel ]
+  * [39bb8d2] Depend on grml-etc-core, thanks to Martin Scharm.
+  * [2ba2740] Introduced easier highlighting for words and charachtes.
+
+ -- Christian Hofstaedtler <ch@grml.org>  Mon, 09 May 2011 23:26:07 +0200
+
 grml-quickconfig (0.9) unstable; urgency=low
 
   * [750fc94] Remove grml2hd from menu (as decided at developer meeting)
