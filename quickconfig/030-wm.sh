@@ -4,7 +4,9 @@ KEY=(x)
 FUNCTION='wm_menu'
 
 display_entry() {
-    return 0
+    . /etc/grml/script-functions
+    check4progs grml-x >/dev/null
+    return $?
 }
 
 # variable definition {{{
