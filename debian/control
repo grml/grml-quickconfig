@@ -8,6 +8,8 @@ Standards-Version: 3.9.1
 Homepage: http://git.grml.org/?p=grml-quickconfig.git
 Vcs-git: git://git.grml.org/grml-quickconfig.git
 Vcs-Browser: http://git.grml.org/?p=grml-quickconfig.git
+Origin: Grml
+Bugs: mailto:bugs@grml.org
 
 Package: grml-quickconfig
 Architecture: all
