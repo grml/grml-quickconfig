@@ -1,3 +1,16 @@
+grml-quickconfig (0.11) unstable; urgency=low
+
+  [ Ulrich Dangel ]
+  * [11b7000] Check if grml-x is present for the wm-menu entry.
+
+  [ Christian Hofstaedtler ]
+  * [72f17ac] Add debian/control headers Origin, Bugs
+
+  [ Michael Prokop ]
+  * [120af6e] Bump Standards-Version to 3.9.2
+
+ -- Michael Prokop <mika@grml.org>  Sat, 26 Nov 2011 20:01:03 +0100
+
 grml-quickconfig (0.10) unstable; urgency=low
 
   [ Ulrich Dangel ]
