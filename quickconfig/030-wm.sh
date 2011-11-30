@@ -41,6 +41,7 @@ wms=(
 print_available_wm() {
   . /etc/grml/script-functions
   LEN=0
+  AVAILABLE_WM_COUNT=0
   local line
 
   for key value in ${(kv)wms} ; do
@@ -54,6 +55,7 @@ print_available_wm() {
       fi
       line+="$(highlight_char $value $key) "
       LEN=$((${(c)#value} + $LEN))
+      AVAILABLE_WM_COUNT=$(($AVAILABLE_WM_COUNT + 1))
     fi
   done
   output+="$line"
@@ -71,6 +73,10 @@ wm_heading() {
 
 # print windowm manager loop {{{
 wm_menu() {
+  if [ $AVAILABLE_WM_COUNT == 1 ]; then
+    run su grml -c "grml-x"
+    return
+  fi
   echo
   wm_heading
   for line in ${output} ; do
