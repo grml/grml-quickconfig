@@ -1,3 +1,9 @@
+grml-quickconfig (0.12) unstable; urgency=low
+
+  * [3ef1e7f] Start X without further questions if only one WM is present
+
+ -- Christian Hofstaedtler <ch@grml.org>  Mon, 05 Dec 2011 15:56:00 +0100
+
 grml-quickconfig (0.11) unstable; urgency=low
 
   [ Ulrich Dangel ]
