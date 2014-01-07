@@ -1,3 +1,11 @@
+grml-quickconfig (0.14) unstable; urgency=medium
+
+  * [2770504] Set myself as maintainer
+  * [86c4a8f] Bump Standards-Version to 3.9.5
+  * [915c44c] Quiet check for available program(s)
+
+ -- Michael Prokop <mika@grml.org>  Tue, 07 Jan 2014 10:15:55 +0100
+
 grml-quickconfig (0.13) unstable; urgency=low
 
   * [5853306] grml-info dialog: check for present HTML page and support
