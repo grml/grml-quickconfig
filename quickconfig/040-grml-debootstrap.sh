@@ -5,7 +5,7 @@ FUNCTION="run $HD_APP"
 
 display_entry() {
     . /etc/grml/script-functions
-    check4progs $HD_APP >/dev/null
+    check4progs $HD_APP >/dev/null 2>&1
     return $?
 }
 

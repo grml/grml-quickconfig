@@ -7,7 +7,7 @@ FUNCTION="run $MENU_PROGNAME"
 
 display_entry() {
     . /etc/grml/script-functions
-    check4progs $MENU_PROGNAME >/dev/null
+    check4progs $MENU_PROGNAME >/dev/null 2>&1
     return $?
 }
 

@@ -5,7 +5,7 @@ FUNCTION='wm_menu'
 
 display_entry() {
     . /etc/grml/script-functions
-    check4progs grml-x >/dev/null
+    check4progs grml-x >/dev/null 2>&1
     return $?
 }
 
@@ -45,7 +45,7 @@ print_available_wm() {
   local line
 
   for key value in ${(kv)wms} ; do
-    if check4progs $value >/dev/null ; then
+    if check4progs $value >/dev/null 2>&1 ; then
       available[$key]=$value
       # test if word could be added to current line
       if [ $((${(c)#value} + $LEN)) -ge $(($MAXLEN-9)) ] ; then
