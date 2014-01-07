@@ -1,8 +1,7 @@
 Source: grml-quickconfig
 Section: utils
 Priority: optional
-Maintainer: Ulrich Dangel <mru@grml.org>
-Uploaders: Michael Prokop <mika@grml.org>
+Maintainer: Michael Prokop <mika@grml.org>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.2
 Homepage: http://git.grml.org/?p=grml-quickconfig.git
