@@ -1,3 +1,10 @@
+grml-quickconfig (0.15) unstable; urgency=medium
+
+  * [2a0d2cf] Display IP and password if ssh boot option is used. Thanks
+    to Evgeni Golov <evgeni@grml.org> for IPv6 support
+
+ -- Michael Prokop <mika@grml.org>  Sat, 19 Apr 2014 00:07:15 +0200
+
 grml-quickconfig (0.14) unstable; urgency=medium
 
   * [2770504] Set myself as maintainer
