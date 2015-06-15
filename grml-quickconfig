@@ -159,7 +159,7 @@ while : ; do
     echo
     get_key INPUT
     case $INPUT in
-        [q|Q|$'\n'])
+        [qQ$'\n'])
             echo $INPUT
             break
             ;;
