@@ -1,3 +1,10 @@
+grml-quickconfig (0.16) unstable; urgency=medium
+
+  * [d6b6a56] Fix pattern usage for Zsh
+  * [fb7a23d] Bump Standards-Version to 3.9.6
+
+ -- Michael Prokop <mika@grml.org>  Mon, 15 Jun 2015 23:12:37 +0200
+
 grml-quickconfig (0.15) unstable; urgency=medium
 
   * [2a0d2cf] Display IP and password if ssh boot option is used. Thanks
