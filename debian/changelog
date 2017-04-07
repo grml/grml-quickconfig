@@ -1,3 +1,14 @@
+grml-quickconfig (0.17) unstable; urgency=medium
+
+  * [23e5c34] 030-wm.sh: switch to sudo to fix controlling tty issue with
+    recent X.org
+  * [2bca0b0] Bump Standards-Version to 3.9.8
+  * [2b42c4b] Switch Homepage + Vcs-Browser headers to https version
+  * [5da4296] Fix typo in manpage (thanks, lintian)
+  * [420102b] Bump debian/compat to 9
+
+ -- Michael Prokop <mika@grml.org>  Fri, 07 Apr 2017 17:07:37 +0200
+
 grml-quickconfig (0.16) unstable; urgency=medium
 
   * [d6b6a56] Fix pattern usage for Zsh
