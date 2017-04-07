@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Michael Prokop <mika@grml.org>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.8
-Homepage: http://git.grml.org/?p=grml-quickconfig.git
+Homepage: https://git.grml.org/?p=grml-quickconfig.git
 Vcs-git: git://git.grml.org/grml-quickconfig.git
-Vcs-Browser: http://git.grml.org/?p=grml-quickconfig.git
+Vcs-Browser: https://git.grml.org/?p=grml-quickconfig.git
 Origin: Grml
 Bugs: mailto:bugs@grml.org
 
