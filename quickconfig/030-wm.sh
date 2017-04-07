@@ -74,7 +74,9 @@ wm_heading() {
 # print windowm manager loop {{{
 wm_menu() {
   if [ $AVAILABLE_WM_COUNT == 1 ]; then
-    run su grml -c "grml-x"
+    chgrp tty "$TTY"
+    chmod g+rw "$TTY"
+    run sudo -u grml grml-x
     return
   fi
   echo
@@ -88,7 +90,9 @@ wm_menu() {
   get_key INPUT
   case $INPUT in
     [${(k)available}])
-    run su grml -c "grml-x ${available[$INPUT]}"
+    chgrp tty "$TTY"
+    chmod g+rw "$TTY"
+    run sudo -u grml -c "grml-x ${available[$INPUT]}"
     ;;
   esac
 }
