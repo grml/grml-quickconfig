@@ -9,6 +9,12 @@ display_entry() {
     return $?
 }
 
+if [ "$(cat /proc/1/comm 2>/dev/null)" = "systemd" ] ; then
+  SYSTEMD=true
+else
+  SYSTEMD=false
+fi
+
 # variable definition {{{
 typeset -A wms
 typeset -A available
@@ -74,10 +80,15 @@ wm_heading() {
 # print windowm manager loop {{{
 wm_menu() {
   if [ $AVAILABLE_WM_COUNT == 1 ]; then
-    chgrp tty "$TTY"
-    chmod g+rw "$TTY"
-    run sudo -u grml grml-x
-    return
+    if $SYSTEMD ; then
+      chvt 7
+      return
+    else
+      chgrp tty "$TTY"
+      chmod g+rw "$TTY"
+      run sudo -u grml grml-x
+      return
+    fi
   fi
   echo
   wm_heading
@@ -90,9 +101,15 @@ wm_menu() {
   get_key INPUT
   case $INPUT in
     [${(k)available}])
-    chgrp tty "$TTY"
-    chmod g+rw "$TTY"
-    run sudo -u grml -c "grml-x ${available[$INPUT]}"
+    if $SYSTEMD ; then
+      mkdir -p /var/run/grml-x/
+      echo "${available[$INPUT]}" > /var/run/grml-x/window-manager
+      chvt 7
+    else
+      chgrp tty "$TTY"
+      chmod g+rw "$TTY"
+      run sudo -u grml -c "grml-x ${available[$INPUT]}"
+    fi
     ;;
   esac
 }
@@ -101,4 +118,4 @@ wm_menu() {
 print_available_wm
 
 ## END OF FILE #################################################################
-# vim:foldmethod=marker expandtab ai ft=zsh shiftwidth=3
+# vim:foldmethod=marker expandtab ai ft=zsh shiftwidth=2
