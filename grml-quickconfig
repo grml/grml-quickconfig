@@ -163,6 +163,11 @@ while : ; do
             echo $INPUT
             break
             ;;
+        [rR])
+            echo $INPUT
+            exec grml-quickconfig
+            break
+            ;;
         [${(k)keys}])
             echo $INPUT
             eval ${keymap[$INPUT]} || true
