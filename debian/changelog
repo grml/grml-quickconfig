@@ -1,3 +1,14 @@
+grml-quickconfig (0.19) unstable; urgency=medium
+
+  * [4690c89] Support refresh/re-executing via "r" key
+  * [b294805] Provide more detailed network information
+  * [484e20c] Bump Standards-Version to 4.5.0
+  * [2b1f8ed] Bump Debian compat version to 12, using debhelper-compat
+    approach
+  * [5d93142] Declare 3.0 (native) as debian/source/format
+
+ -- Michael Prokop <mika@grml.org>  Wed, 27 May 2020 11:26:17 +0200
+
 grml-quickconfig (0.18) unstable; urgency=medium
 
   * [4d3259f] Ensure to run appropriate grml-x procedure under systemd
