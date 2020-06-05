@@ -1,5 +1,5 @@
 # cloud-init not installed/present
-if ! [ -x $(which cloud-init) ] ; then
+if ! [ -x "$(which cloud-init)" ] ; then
   return 0
 fi
 
