@@ -1,3 +1,10 @@
+grml-quickconfig (0.21) unstable; urgency=medium
+
+  * [0852dfe] cloud-init: fix quoting to not fail if cloud-init isn't
+    present
+
+ -- Michael Prokop <mika@grml.org>  Fri, 05 Jun 2020 13:21:53 +0200
+
 grml-quickconfig (0.20) unstable; urgency=medium
 
   * [105b2e3] Provide cloud-init status information
