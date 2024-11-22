@@ -1,3 +1,14 @@
+grml-quickconfig (0.22) unstable; urgency=medium
+
+  [ Chris Hofstaedtler ]
+  * [7bba540] debian: update Vcs-Git and Vcs-Browser
+
+  [ Michael Prokop ]
+  * [df45771] Ship debian/gbp.conf for gbp usage
+  * [4814d52] debian: Bump Standards-Version to 4.7.0
+
+ -- Michael Prokop <mika@grml.org>  Fri, 22 Nov 2024 16:39:35 +0100
+
 grml-quickconfig (0.21) unstable; urgency=medium
 
   * [0852dfe] cloud-init: fix quoting to not fail if cloud-init isn't
