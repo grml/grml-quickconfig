@@ -15,7 +15,7 @@ SSH_OPTION=$(grep -Eo '\<ssh=[^ ]+' /proc/cmdline || true)
 PWD_OPTION=$(grep -Eo '\<passwd=[^ ]+' /proc/cmdline || true)
 
 if [ -n "${SSHD_PID:-}" ] ; then
-  LINE+="print_line 'You can connect with SSH to: ${IPADDR:-} ${IPADDR6:-} ${AVAHI_INFO:-}';"
+  LINE+="print_line 'You can connect with SSH to the IP addresses listed below.';"
 fi
 
 USER=$(getent passwd 1000 | cut -d: -f1)
