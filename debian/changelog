@@ -1,3 +1,13 @@
+grml-quickconfig (0.23) unstable; urgency=medium
+
+  [ Christopher Bock ]
+  * [a7e3114] Remove IPs from active SSH notification.
+
+  [ Chris Hofstaedtler ]
+  * [dbc9430] d/copyright: remove (old) FSF address
+
+ -- Chris Hofstaedtler <ch@grml.org>  Mon, 03 Nov 2025 12:56:12 +0100
+
 grml-quickconfig (0.22) unstable; urgency=medium
 
   [ Chris Hofstaedtler ]
