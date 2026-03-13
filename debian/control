@@ -2,19 +2,27 @@ Source: grml-quickconfig
 Section: utils
 Priority: optional
 Maintainer: Michael Prokop <mika@grml.org>
-Build-Depends: debhelper-compat (= 12)
+Build-Depends:
+ debhelper-compat (= 12),
 Standards-Version: 4.7.0
 Homepage: https://github.com/grml/grml-quickconfig
 Vcs-Git: https://github.com/grml/grml-quickconfig.git
 Vcs-Browser: https://github.com/grml/grml-quickconfig
 Origin: Grml
 Bugs: mailto:bugs@grml.org
+X-Style: black
 
 Package: grml-quickconfig
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, zsh | zsh-beta, grml-etc-core
-Suggests: grml-quickconfig-standard
-Conflicts: grml-scripts (<= 1.2.2)
+Depends:
+ grml-etc-core,
+ zsh | zsh-beta,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Suggests:
+ grml-quickconfig-standard,
+Conflicts:
+ grml-scripts (<= 1.2.2),
 Description: Menu framework for quick access of grml menu entries
  grml-quickconfig provides a console based interface to get fast
  access to some basic grml-scripts like for example grml-network,
@@ -29,7 +37,10 @@ Description: Menu framework for quick access of grml menu entries
 
 Package: grml-quickconfig-standard
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, grml-quickconfig
+Depends:
+ grml-quickconfig,
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Standard menu entries for grml-quickconfig
  This package contains the standard grml-quickconfig menu entries.
  .
